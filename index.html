@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VorTech Grid - Build Better, Spend Smarter. Gaming PCs, workstations, components, and certified pre-owned hardware.">
+  <title>VorTech Grid | Build Better, Spend Smarter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a href="#" class="logo" aria-label="VorTech Grid Home">
+        <img class="logo__icon" src="assets/images/vortech.png" alt="" width="32" height="32">
+        <span class="logo__text">VorTech Grid</span>
+      </a>
+
+      <form class="search" role="search" aria-label="Product search">
+        <label for="search-input" class="visually-hidden">Search products</label>
+        <input type="search" id="search-input" placeholder="Search components, PCs..." aria-describedby="search-hint" autocomplete="off">
+        <button type="submit" class="search__btn" aria-label="Submit search">
+          <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+        <span id="search-hint" class="visually-hidden">Type to filter products in real-time</span>
+      </form>
+
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav__list" role="list">
+          <li><a href="#catalog" class="nav__link is-active" data-category="all">All</a></li>
+          <li><a href="#catalog" class="nav__link" data-category="desktops">Complete Sets</a></li>
+          <li><a href="#catalog" class="nav__link" data-category="gpus">GPUs</a></li>
+          <li><a href="#catalog" class="nav__link" data-category="cpus">CPUs</a></li>
+          <li><a href="#catalog" class="nav__link" data-category="ram">RAM</a></li>
+          <li><a href="#catalog" class="nav__link" data-category="storage">Storage</a></li>
+          <li><a href="#catalog" class="nav__link" data-category="preowned">Certified Pre-Owned</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <div class="condition-filter" role="group" aria-label="Condition filter">
+          <button type="button" class="condition-filter__btn is-active" data-condition="all" aria-pressed="true">All</button>
+          <button type="button" class="condition-filter__btn" data-condition="new" aria-pressed="false">Brand New</button>
+          <button type="button" class="condition-filter__btn" data-condition="preowned" aria-pressed="false">Certified Pre-Owned</button>
+        </div>
+
+        <button class="cart-toggle" id="cart-toggle" aria-label="Shopping cart" aria-expanded="false" aria-controls="cart-drawer">
+          <svg class="cart-toggle__icon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+          <span class="cart-toggle__badge" aria-live="polite" aria-atomic="true">0</span>
+        </button>
+
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-list">
+          <span class="hamburger" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero__content">
+        <h1 id="hero-title" class="hero__title">Build Better, <span class="hero__accent">Spend Smarter.</span></h1>
+        <p class="hero__subtitle">Curated gaming rigs, workstation powerhouses, and certified pre-owned hardware — all tested, warranted, and ready to ship.</p>
+        <div class="hero__cta">
+          <a href="#catalog" class="btn btn--primary">Shop New Builds</a>
+          <a href="#catalog" class="btn btn--secondary" data-condition="preowned">Browse Certified Pre-Owned</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main id="main-content" class="main">
+    <div class="container main__grid">
+      <aside class="filters" id="filters" aria-label="Product filters">
+        <div class="filters__header">
+          <h2 class="filters__title">Filters</h2>
+          <button class="filters__close" id="filters-close" aria-label="Close filters" aria-expanded="true">✕</button>
+        </div>
+
+        <form class="filters__form" id="filters-form">
+          <fieldset class="filter-group">
+            <legend>Category</legend>
+            <div class="filter-group__options">
+              <label class="checkbox"><input type="checkbox" name="category" value="desktops" checked> Complete Desktop Sets</label>
+              <label class="checkbox"><input type="checkbox" name="category" value="gpus" checked> Graphics Cards</label>
+              <label class="checkbox"><input type="checkbox" name="category" value="cpus" checked> Processors</label>
+              <label class="checkbox"><input type="checkbox" name="category" value="ram" checked> Memory (RAM)</label>
+              <label class="checkbox"><input type="checkbox" name="category" value="storage" checked> Storage</label>
+              <label class="checkbox"><input type="checkbox" name="category" value="preowned" checked> Certified Pre-Owned</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Price Range</legend>
+            <div class="price-range">
+              <div class="price-range__inputs">
+                <label for="price-min">Min</label>
+                <input type="number" id="price-min" name="priceMin" min="0" max="300000" step="500" value="0" inputmode="numeric">
+              </div>
+              <div class="price-range__slider" role="slider" aria-label="Price range" aria-valuemin="0" aria-valuemax="300000">
+                <input type="range" id="price-max" name="priceMax" min="0" max="300000" step="500" value="300000" class="price-range__input">
+              </div>
+              <div class="price-range__inputs">
+                <label for="price-max-input">Max</label>
+                <input type="number" id="price-max-input" name="priceMaxInput" min="0" max="300000" step="500" value="300000" inputmode="numeric">
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="filter-group">
+            <legend>Condition</legend>
+            <div class="filter-group__options">
+              <label class="radio"><input type="radio" name="condition" value="all" checked> All</label>
+              <label class="radio"><input type="radio" name="condition" value="new"> Brand New <span class="badge badge--new">NEW</span></label>
+              <label class="radio"><input type="radio" name="condition" value="preowned"> Certified Pre-Owned <span class="badge badge--preowned">CPO</span></label>
+            </div>
+          </fieldset>
+
+          <button type="button" class="btn btn--outline filters__clear" id="filters-clear">Clear All Filters</button>
+        </form>
+      </aside>
+
+      <section class="catalog" id="catalog" aria-labelledby="catalog-title">
+        <div class="catalog__header">
+          <h2 id="catalog-title" class="catalog__title">Product Catalog</h2>
+          <div class="catalog__meta">
+            <span class="catalog__count" aria-live="polite"><span id="product-count">0</span> products</span>
+            <button class="btn btn--ghost filters__toggle" id="filters-toggle" aria-expanded="false" aria-controls="filters">Filters</button>
+          </div>
+        </div>
+
+        <div class="catalog__grid" id="product-grid" role="list" aria-label="Products">
+        </div>
+
+        <div class="catalog__empty" id="catalog-empty" hidden>
+          <svg class="catalog__empty-icon" aria-hidden="true" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="8" x2="14" y2="14"></line></svg>
+          <p>No products match your filters.</p>
+          <button class="btn btn--primary" id="reset-filters">Reset Filters</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+    <div class="cart-drawer__backdrop" tabindex="-1"></div>
+    <div class="cart-drawer__panel">
+      <header class="cart-drawer__header">
+        <h2 id="cart-title" class="cart-drawer__title">Shopping Cart</h2>
+        <button class="cart-drawer__close" id="cart-drawer-close" aria-label="Close cart">✕</button>
+      </header>
+
+      <ul class="cart-drawer__items" id="cart-items" role="list" aria-label="Cart items">
+      </ul>
+
+      <footer class="cart-drawer__footer">
+        <div class="cart-drawer__summary">
+          <div class="cart-drawer__row">
+            <span>Subtotal</span>
+            <span id="cart-subtotal">₱0</span>
+          </div>
+          <div class="cart-drawer__row">
+            <span>Shipping</span>
+            <span id="cart-shipping">Calculated at checkout</span>
+          </div>
+          <div class="cart-drawer__row cart-drawer__row--total">
+            <span>Total</span>
+            <span id="cart-total">₱0</span>
+          </div>
+        </div>
+        <button class="btn btn--primary btn--full" id="checkout-btn" disabled>Proceed to Checkout</button>
+        <p class="cart-drawer__note">Secure checkout • 30-day returns • Free shipping over ₱5,600</p>
+      </footer>
+    </div>
+  </aside>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="logo logo--footer" aria-label="VorTech Grid Home">
+            <img class="logo__icon" src="assets/images/vortech.png" alt="" width="40" height="40">
+            <span class="logo__text">VorTech Grid</span>
+          </a>
+          <p class="footer__tagline">Build Better, Spend Smarter</p>
+        </div>
+        <nav class="footer__nav" aria-label="Support">
+          <h3>Support</h3>
+          <ul role="list">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Warranty & Returns</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </nav>
+        <nav class="footer__nav" aria-label="Company">
+          <h3>Company</h3>
+          <ul role="list">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Affiliate Program</a></li>
+          </ul>
+        </nav>
+        <div class="footer__newsletter">
+          <h3>Stay Updated</h3>
+          <form class="newsletter-form" aria-label="Newsletter signup">
+            <label for="email" class="visually-hidden">Email address</label>
+            <input type="email" id="email" placeholder="your@email.com" required>
+            <button type="submit" class="btn btn--primary">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 VorTech Grid. All rights reserved.</p>
+        <div class="footer__legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
